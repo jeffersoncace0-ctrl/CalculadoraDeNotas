@@ -24,3 +24,4 @@ print(f"customer: {name_customer}")
 print(f"subtotal: ${subtotal:.2f}")
 print(f"discount applied: ${discount:.2f}")
 print(f"total to pay: $ {total_final:.2f} ")
+
