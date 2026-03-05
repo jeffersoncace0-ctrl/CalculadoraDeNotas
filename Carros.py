@@ -22,7 +22,7 @@ while True:
         if parqueo_actual < capacidad_maxima:
             placa = input ("Ingrese su placa: ")
             parqueo_actual += 1
-            print (f"carros con placa{placa}ingreso correctamente")
+            print (f"carros con {placa}ingreso correctamente")
 
         else :
             print ("Parqueo lleno, no hay espacio sufiente")
@@ -31,11 +31,13 @@ while True:
         if parqueo_actual > 0: 
                 placa = input ("Ingrese la placa que quiere salir: ")
                 parqueo_actual -=1
-                print ("carros con placa , salio correctamente")
+                print (f"carros con placa {placa} , salio correctamente")
+                break
 
         else: opcion == "3"
         print ("saliendo del sistema...")
+
 else:
         print ("Opcion invalida")
-    
+        
     
