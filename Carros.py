@@ -1,43 +1,62 @@
-print ("SISTEMA DE PARQUEO")
+print("SISTEMA DE PARQUEO")
 
-parqueo_actual = 5
 capacidad_maxima = 10
+parqueadero = []   
+opcion = " "
 
-while True:
+while opcion != "3":
     
+    parqueo_actual = len(parqueadero)
     cupos_disponibles = capacidad_maxima - parqueo_actual
     
-    print (f"\n capacidad maxima:{capacidad_maxima}")
-    print (f"\n parqueo actual:{parqueo_actual}")
-    print ("\n cupos disponible:{cupos disṕonibles}")
+    print(f"\nCapacidad máxima: {capacidad_maxima}")
+    print(f"Parqueo actual: {parqueo_actual}")
+    print(f"Cupos disponibles: {cupos_disponibles}")
+    print("\n1. Registrar entrada")
+    print("2. Registrar salida")
+    print("3. Salir del sistema")
     
-    print ("1.Registrar entrada")
-    print ("2.Registrar salida")
-    print ("3.Salir del sistema")
-
-    opcion = input("Seleccione su opcion: ")
-
+    opcion = input("Seleccione su opción: ")
     if opcion == "1":
-    
         if parqueo_actual < capacidad_maxima:
-            placa = input ("Ingrese su placa: ")
-            parqueo_actual += 1
-            print (f"carros con {placa}ingreso correctamente")
-
-        else :
-            print ("Parqueo lleno, no hay espacio sufiente")
-    
-    elif opcion == "2":
-        if parqueo_actual > 0: 
-                placa = input ("Ingrese la placa que quiere salir: ")
-                parqueo_actual -=1
-                print (f"carros con placa {placa} , salio correctamente")
-                break
-
-        else: opcion == "3"
-        print ("saliendo del sistema...")
-
-else:
-        print ("Opcion invalida")
+            placa = input("Ingrese su placa: ")
+            if placa in parqueadero:
+                print("Esta moto ya está en el parqueadero")
+                
+            else:
+                parqueadero.append(placa)
+                
+        with open ("Registro de parqueo.txt", "a") as archivo:
+                for opciones in parqueadero:
+                    archivo.write (f"ENTRADA - {placa}\n")
+                    
+                    
+                print(f"Moto con placa {placa} ingresó correctamente")
+                
+    else:
+            print("Parqueo lleno, no hay espacio suficiente")
+        elif opcion == "2":
         
+    if parqueo_actual > 0:
+            
+            placa = input("Ingrese la placa que quiere salir: ")
+            
+    if placa in parqueadero:
+                
+                parqueadero.remove(placa)
+                
+    with open ("Registro de parqueo.txt", "a") as archivo:
+                for opciones in parqueadero:
+                    archivo.write (f"SALIDA  - {placa}\n")
+        
+                    
+            
+                print(f"Moto con {placa} salió correctamente")
+                
+    else:
+            print("Esa placa no está en el parqueadero")
+            
+else:
+    print ("no hay motos en el parqueadero")
+elif:
     
